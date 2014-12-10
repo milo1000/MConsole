@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="fill_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical"
+  android:paddingLeft="8.0dp"
+  android:paddingRight="8.0dp">
+
+	<LinearLayout
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content"
+	  android:orientation="vertical">
+      <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/server_address"></TextView>
+      <EditText android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:hint="@string/server_address_hint" 
+                android:id="@+id/server_address_edit"
+                android:paddingTop="4.0dp"></EditText>
+	</LinearLayout>
+	
+<!--   <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+      <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:text="@string/server_password"></TextView>
+      <EditText android:layout_width="fill_parent" android:layout_height="wrap_content"
+                android:hint="@string/server_password_hint" 
+                android:id="@+id/server_password_edit"
+                android:inputType="textPassword"
+                android:paddingTop="4.0dp"></EditText>
+  </LinearLayout> -->
+		
+	
+	<LinearLayout
+	  android:layout_width="fill_parent"
+	  android:layout_height="wrap_content"
+	  android:orientation="vertical"
+	  android:paddingTop="6.0dp">
+	  <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+	            android:text="@string/server_name"></TextView>
+	  <EditText android:layout_width="fill_parent" android:layout_height="wrap_content" 
+	            android:hint="@string/server_name_hint"
+	            android:id="@+id/server_name_edit"
+	            android:paddingTop="4.0dp"></EditText>
+	</LinearLayout>
+  <LinearLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="6.0dp">
+    <TextView android:layout_width="fill_parent" android:layout_height="wrap_content"
+              android:text="@string/server_port"></TextView>
+    <EditText android:layout_width="fill_parent" android:layout_height="wrap_content" 
+              android:hint="@string/server_port_hint"
+              android:id="@+id/server_port_edit"
+              android:ems="10"
+              android:inputType="numberDecimal"              
+              android:paddingTop="4.0dp"></EditText>
+  </LinearLayout>
+
+  <CheckBox
+      android:paddingTop="6.0dp"
+      android:id="@+id/reset_password"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/server_reset_password" />
+
+</LinearLayout>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="whats_new_release_notes">1.05: poprawka na Bukkit + plugin Essentials\n\nMConsole to narzędzie do zarządzania serwerem Minecrafta.\n Aby go używać, w pliku server.properties musisz ustawić:\n enable-rcon=true\n rcon.password=jakies_haslo</string>
+</resources>

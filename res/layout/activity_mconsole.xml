@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:ads="http://schemas.android.com/apk/lib/com.google.ads"    
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MConsoleActivity"
+    >
+    <com.google.ads.AdView
+        android:id="@+id/advert"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-000000000000000000000000000"
+        ads:testDevices="TEST_EMULATOR"
+        ads:loadAdOnCreate="true"
+        android:layout_alignParentTop="true"
+    ></com.google.ads.AdView>
+    
+    <LinearLayout
+        android:id="@+id/manage_line"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentBottom="true"
+        >
+
+        <Button
+            android:id="@+id/add_button"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:text="@string/button_add"
+            android:textSize="20.0sp" 
+            android:layout_weight="0.8"/>
+        <Button
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_edit"
+            android:textSize="20.0sp" />
+        <Button
+            android:id="@+id/remove_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_remove"
+            android:textSize="20.0sp" />
+        
+    </LinearLayout>    
+
+    <LinearLayout
+        android:id="@+id/server_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/manage_line"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:prompt = "@string/server_list_header" />
+        <Button
+            android:id="@+id/connect_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_connect"
+            android:textSize="20.0sp" />
+    </LinearLayout>    
+
+    <LinearLayout
+        android:id="@+id/add_hint"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/server_list"
+        android:gravity="left"
+        android:orientation="horizontal"
+        >
+        <TextView android:layout_width="fill_parent"
+                  android:layout_height="wrap_content" 
+                  android:text="@string/add_hint_text"
+                  android:gravity="center"/>
+    </LinearLayout>    
+    
+    <ImageView
+        android:id="@+id/banner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/server_list"
+        android:layout_alignTop="@layout/activity_mconsole"
+        android:layout_below="@id/advert"
+        android:scaleType="fitCenter"
+        android:src="@drawable/banner"
+        android:visibility="visible" 
+        android:contentDescription="@string/app_name">
+    </ImageView>
+</RelativeLayout>

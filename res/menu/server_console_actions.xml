@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:mconsole="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/action_say"
+          android:icon="@drawable/ic_action_chat"
+          android:title="@string/server_console_action_say"
+          mconsole:showAsAction="ifRoom"/>
+    <item android:id="@+id/action_banlist"
+          android:icon="@drawable/s_action_ban"
+          android:title="@string/server_console_action_banlist"
+          mconsole:showAsAction="ifRoom"/>
+   <item android:id="@+id/action_save_all"
+	        android:title="@string/server_console_action_save_all"
+	        mconsole:showAsAction="never"/>
+    <item android:id="@+id/action_stop"
+          android:title="@string/server_console_action_stop"
+          mconsole:showAsAction="never"/>
+    <item android:id="@+id/action_send_report"
+          android:title="send report"
+          android:visible="false"
+          mconsole:showAsAction="never"/>    
+</menu>

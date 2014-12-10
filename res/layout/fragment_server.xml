@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    android:background="@color/mc_dark_backgrouns"
+    >
+    
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/weather"
+        android:background="@color/mc_dark_backgrouns" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/mc_dark_backgrouns" >
+
+        <ImageButton
+            android:id="@+id/weather_sun_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/weather_sun"
+            android:background="@drawable/holo_background" />
+        <ImageButton
+            android:id="@+id/weather_rain_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/weather_rain"
+            android:background="@drawable/holo_background" />
+        <ImageButton
+            android:id="@+id/weather_thunder_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/weather_thunder"
+            android:background="@drawable/holo_background"
+            />
+
+        <EditText
+            android:id="@+id/weather_seconds"
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="4.0dp"
+            android:ems="2"
+            android:text="300"
+            android:gravity="right|center_vertical"
+            android:layout_gravity="center_vertical"
+            android:inputType="numberDecimal" >
+        </EditText>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="2.0dp"
+            android:paddingRight="4.0dp"
+            android:text="@string/seconds"
+            />
+
+        <View
+	        android:layout_width="2dp"
+	        android:layout_height="fill_parent"
+	        android:layout_marginTop="4dp"
+	        android:layout_marginBottom="4dp"
+	        android:background="#ff202122" />
+
+        <ImageButton
+            android:id="@+id/weather_toggle_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/weather_toggle"
+            android:background="@drawable/holo_background"
+            />
+        
+    </LinearLayout>
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#ff202122" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mc_dark_backgrouns"
+        android:text="@string/time" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/mc_dark_backgrouns" >
+
+        <ImageButton
+            android:id="@+id/time_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/ic_action_time"
+            android:background="@drawable/holo_background" />
+        <ImageButton
+            android:id="@+id/time_15min_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/time_advance_15"
+            android:background="@drawable/holo_background" />
+        <ImageButton
+            android:id="@+id/time_1h_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/time_advance_1h"
+            android:background="@drawable/holo_background"
+            />
+        
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/mc_dark_backgrouns" >
+
+        <ImageButton
+            android:id="@+id/time_dawn_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/time_dawn"
+            android:background="@drawable/holo_background" />
+        <ImageButton
+            android:id="@+id/time_noon_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/weather_sun"
+            android:background="@drawable/holo_background" />
+        <ImageButton
+            android:id="@+id/time_dusk_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/time_dusk"
+            android:background="@drawable/holo_background"
+            />
+        <ImageButton
+            android:id="@+id/time_midnight_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/time_midnight"
+            android:background="@drawable/holo_background" />
+    </LinearLayout>
+    <View
+        android:layout_height="2dp"
+        android:layout_width="fill_parent"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:background="#ff202122" />
+    
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/mc_dark_backgrouns"
+        android:text="@string/difficulty" />
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/mc_dark_backgrouns" >
+
+        <ImageButton
+            android:id="@+id/diff_peaceful_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/difficulty_peaceful"
+            android:background="@drawable/holo_background" />
+        <ImageButton
+            android:id="@+id/diff_easy_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/difficulty_easy"
+            android:background="@drawable/holo_background" />
+        <ImageButton
+            android:id="@+id/diff_normal_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/difficulty_normal"
+            android:background="@drawable/holo_background"
+            />
+        <ImageButton
+            android:id="@+id/diff_hard_button"
+            android:layout_width="48.0dp"
+            android:layout_height="48.0dp"
+            android:src="@drawable/difficulty_difficult"
+            android:background="@drawable/holo_background" />
+    </LinearLayout>
+    
+</LinearLayout>

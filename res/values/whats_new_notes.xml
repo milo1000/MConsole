@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="whats_new_release_notes">1.05: Fix for Bukkit + Essentials plugin\n\nMConsole is a Minecraft server administration tool.\n To use it you must change server.properties file:\n enable-rcon=true\n rcon.password=passphrase</string>
+</resources>
