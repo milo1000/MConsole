@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         ads:adSize="BANNER"
-        ads:adUnitId="ca-app-pub-000000000000000000000000000"
+        ads:adUnitId="ca-app-pub-0000000000000000/0000000000"
         ads:testDevices="TEST_EMULATOR"
         ads:loadAdOnCreate="true"
         android:layout_alignParentTop="true"

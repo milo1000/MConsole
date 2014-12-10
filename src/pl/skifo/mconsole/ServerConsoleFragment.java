@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.ScrollView;
 
 public class ServerConsoleFragment extends Fragment {
     
@@ -100,6 +101,8 @@ public class ServerConsoleFragment extends Fragment {
         
         View rootView = inflater.inflate(R.layout.fragment_console, container, false);
         consoleOut = (pl.skifo.mconsole.ConsoleOutputImpl) rootView.findViewById(R.id.console_output);
+        consoleOut.setParent((ScrollView)rootView.findViewById(R.id.console_output_scroll_container));
+        
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(ctx,
                 android.R.layout.simple_dropdown_item_1line, COUNTRIES);
         inputLine = (AutoCompleteTextView)rootView.findViewById(R.id.input_line);

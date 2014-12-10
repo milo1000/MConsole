@@ -35,7 +35,7 @@ import android.widget.Toast;
 public class MConsoleActivity extends Activity {
 
     public static final boolean LOG_DEBUG = true;
-    public static final boolean LOG_REPORT = false;
+    public static final boolean LOG_REPORT = true;
     
     public static final String SERVER_DATA = "pl.skifo.mconsole.ServerInfo";
     
@@ -565,8 +565,7 @@ public class MConsoleActivity extends Activity {
     
 
     private static ArrayList<String> report = new ArrayList<String>();
-    private static int maxReportLines = 4000;
-    
+    private static int maxReportLines = 10000;    
     public static void doLog(String prefix, String msg) {
         Log.d(prefix, msg);
         if (LOG_REPORT) {

@@ -10,13 +10,18 @@
     android:orientation="vertical"
     >
 
-
+<ScrollView android:id="@+id/console_output_scroll_container"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true"
+    android:layout_weight="0.5"
+    >
 <pl.skifo.mconsole.ConsoleOutputImpl
     android:id="@+id/console_output"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:layout_weight="0.5"
+    android:layout_height="wrap_content"
     />
+</ScrollView>
 
 <LinearLayout
     android:layout_width="match_parent"

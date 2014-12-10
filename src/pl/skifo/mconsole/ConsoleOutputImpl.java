@@ -7,14 +7,16 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.ScrollView;
 
 public class ConsoleOutputImpl extends ImageView implements ResponseReceiver, ConsoleOutput {
 
     private static final float DEFAULT_FONT_SIZE = 18.0f;
-    private static final int TOP_MARGIN = 4;
     private static final int MAX_LINES_IN_BUFFER = 200;
+    private static final int MAX_LINES_IN_SCROLLBACK = 100;
+    private static final String LOG_PREFIX = "ConOut";
     
     
     private Paint paint;
@@ -22,6 +24,8 @@ public class ConsoleOutputImpl extends ImageView implements ResponseReceiver, Co
     private float fontSize;
     private ArrayList<AttributedLine> lineBuffer;
     private AttributedLine[] lineBufferUnwrapped;
+    private ScrollView parent; 
+    
 
     private void init(Context context) {
         paint = new Paint();
@@ -36,7 +40,7 @@ public class ConsoleOutputImpl extends ImageView implements ResponseReceiver, Co
         if (context instanceof ServerConsole) {
             ((ServerConsole)context).registerDefaultConsoleOutput(this);
         }
-        if (MConsoleActivity.LOG_DEBUG) MConsoleActivity.d(MConsoleActivity.LOG_PREFIX, "console output init");
+        if (MConsoleActivity.LOG_DEBUG) MConsoleActivity.d(LOG_PREFIX, "console output init");
     }
     
     public ConsoleOutputImpl(Context context) {
@@ -54,6 +58,11 @@ public class ConsoleOutputImpl extends ImageView implements ResponseReceiver, Co
         init(context);
     }
 
+    
+    public void setParent(ScrollView p) {
+        parent = p;
+    }
+    
     @Override
     public void addLine(String line) {
         addLine(new AttributedLine(line));
@@ -80,6 +89,26 @@ public class ConsoleOutputImpl extends ImageView implements ResponseReceiver, Co
     }
     
     
+    
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        if (MConsoleActivity.LOG_DEBUG) MConsoleActivity.d(LOG_PREFIX, "onMeasure w = "+View.MeasureSpec.toString(widthMeasureSpec)+", h = "+View.MeasureSpec.toString(heightMeasureSpec));
+        
+        int mode = View.MeasureSpec.getMode(heightMeasureSpec);
+        if (mode == View.MeasureSpec.EXACTLY) {
+            int h = View.MeasureSpec.getSize(heightMeasureSpec);
+            
+            Paint.FontMetricsInt fmi = scratchPaint.getFontMetricsInt();
+            float rowSize = fmi.bottom - fmi.top;
+            int maxVisibleRows = (int) (h / rowSize);
+            if (maxVisibleRows < MAX_LINES_IN_SCROLLBACK) {
+                heightMeasureSpec = View.MeasureSpec.makeMeasureSpec((int)(MAX_LINES_IN_SCROLLBACK * rowSize), mode);
+            }
+        }
+        
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -89,6 +118,8 @@ public class ConsoleOutputImpl extends ImageView implements ResponseReceiver, Co
         float maxWidth = getWidth() - indent;
         Paint.FontMetricsInt fmi = scratchPaint.getFontMetricsInt();
         float rowSize = fmi.bottom - fmi.top;
+        
+        if (MConsoleActivity.LOG_DEBUG) MConsoleActivity.d(LOG_PREFIX, "h = "+h+", w = "+getWidth());
         
         if (h > 0) {
             int maxVisibleRows = (int) (h / rowSize);
@@ -136,10 +167,24 @@ public class ConsoleOutputImpl extends ImageView implements ResponseReceiver, Co
             }
         }
     }
+    
+    
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right,
+            int bottom) {
+        if (parent != null) {
+            parent.fullScroll(View.FOCUS_DOWN);
+        }
+        super.onLayout(changed, left, top, right, bottom);
+    }
 
     @Override
     public void response(ServerResponse response) {
         addBlock(response.getResponseBlock());
+        if (parent != null) {
+            parent.fullScroll(View.FOCUS_DOWN);
+        }
         postInvalidate();
     }
 
@@ -147,5 +192,4 @@ public class ConsoleOutputImpl extends ImageView implements ResponseReceiver, Co
     public void refresh() {
         postInvalidate();
     }
-    
 }
